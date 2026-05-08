@@ -1,127 +1,52 @@
-# MagicWand AI Website
+# InfinixLeverage
 
-> Last updated: 2026-01-22
+AI-powered customer support platform. Never miss another call, never lose another customer.
 
-A dual-mode website supporting both static HTML deployment and React development.
+## Pages
 
-## Current Setup
+| File | URL | Description |
+|------|-----|-------------|
+| `index.html` | `/` | Main landing page — hero, inbound/outbound call demos, CTA |
+| `ai-support-website.html` | `/ai-support-website` | Meta-refresh redirect to `index.html` |
+| `hero.html` | `/hero` | Kalalou Hero section |
+| `teams.html` | `/teams` | Team page |
+| `questionnaire.html` | `/questionnaire` | AI system questionnaire for Kalalou |
+| `kalalou-presentation.html` | `/kalalou-presentation` | Kalalou AI Leverage presentation |
+| `kalalou-presentation-page.html` | `/kalalou-presentation-page` | Kalalou presentation page view |
 
-- **Production (Vercel)**: Deploys static HTML files from `public/` directory
-- **Development**: React app in `src/` for future enhancements
+## Local Development
 
-## Production Pages
+No build step needed. Serve the root directory with any static server:
 
-- **Home**: AI Customer Support page with dark theme
-- **AI Support**: Redirects to home
-- **Kalalou**: Kalalou AI Leverage presentation page with light theme
-
-## Features
-
-- 🎨 Pixel-perfect design matching the original HTML files
-- 📱 Responsive iPhone mockups
-- 🎭 Interactive slide-to-answer functionality
-- 🎠 Hero carousel on Kalalou page
-- 🎯 Smooth navigation between pages
-- ⚡ Fast development with Vite
-- 🎨 Tailwind CSS for styling
-
-## Getting Started
-
-### Installation
-
-```bash
-npm install
-```
-
-### Development
-
-```bash
-npm run dev
-```
-
-The website will be available at `http://localhost:5173`
-
-### Build
-
-```bash
-npm run build
-```
-
-### Preview Production Build
-
-```bash
-npm run preview
-```
-
-## Project Structure
-
-```
-├── index.html                   # 🚀 Main landing page (DEPLOYED)
-├── ai-support-website.html      # 🚀 Redirects to index (DEPLOYED)
-├── kalalou-presentation.html    # 🚀 Presentation page (DEPLOYED)
-├── vercel.json                  # Vercel configuration (static deployment)
-├── .vercelignore               # Ignore React files during deployment
-├── public/                      # Backup of HTML files
-├── src/                         # React development files (not deployed)
-│   ├── components/
-│   │   ├── Navigation.jsx      # Shared navigation component
-│   │   ├── iPhoneMockup.jsx    # iPhone mockup component
-│   │   └── StatusBar.jsx        # Status bar component
-│   ├── pages/
-│   │   ├── Home.jsx            # AI Support page (main)
-│   │   └── Kalalou.jsx         # Kalalou presentation page
-│   ├── App.jsx                  # Main app with routing
-│   ├── main.jsx                 # Entry point
-│   └── index.css                # Global styles
-├── package.json
-├── tailwind.config.js
-└── vite.config.js
-```
-
-## Deployment
-
-### Production (Vercel)
-The site deploys static HTML files from the root directory.
-
-**Configuration:**
-- HTML files are in root directory (Vercel requirement for static sites)
-- `vercel.json` configured for redirects and clean URLs
-- `.vercelignore` excludes React source code and build files
-- No build process runs on deployment
-- Files are served directly as-is
-
-### Local Testing
-To test the static files locally:
 ```bash
 npx serve .
 # or
 python -m http.server 8000
 ```
 
-### Development (React)
-To work on the React version (not currently deployed):
-```bash
-npm install
-npm run dev
-```
+Then open `http://localhost:8000`.
 
-## Technologies
+## Deployment
 
-### Production Stack
-- Pure HTML/CSS/JavaScript (Three.js for animations)
+Deployed on Vercel as a static site. Files in the repo root are served directly — no build process runs. `vercel.json` handles routing and clean URLs.
 
-### Development Stack (Optional)
-- React 18
-- React Router DOM
-- Vite
-- Tailwind CSS
-- PostCSS
-- Autoprefixer
+Push to `main` to deploy.
 
-## Design Notes
+## Mobile Notes
 
-- **Home Page**: Dark theme (#0a0a0a background) with white accents
-- **Kalalou Page**: Light theme (#F7F4EF background) with Playfair Display font
-- Both pages maintain the exact same visual design as the original HTML files
-- All interactive features (carousel, slide-to-answer) are fully functional
+- iPhone mockup uses `aspect-ratio: 1/2` + `max-width: 360px` — scales fluidly on all screen sizes without fixed pixel heights.
+- Slide-to-call handlers use the Pointer Events API (`pointerdown` / `pointermove` / `pointerup`) for unified mouse and touch support. `touch-action: none` prevents scroll conflicts.
+- Outbound call screen animates a "ringing..." pulse state once the user submits their number.
+- All CSS is mobile-first (base styles target mobile; `min-width` breakpoints scale up to tablet/desktop).
 
+## Branding
+
+- **Favicon** (`favicon.svg`): Black rounded-rect background, white infinity stroke — renders at any size including browser tab and iOS home screen.
+- **Nav logo** (`images/logo.svg`): Same infinity path with a white-to-grey gradient, transparent background — used as `<img>` in the nav bar.
+- **Color palette**: `#000` / `#0a0a0a` backgrounds, `#fff` primary text, `#888` secondary text. Full light-mode support via CSS custom properties.
+
+## Tech Stack
+
+- Pure HTML / CSS / JavaScript — no framework, no build step
+- [Three.js](https://threejs.org/) (CDN) — animated wave background on the hero
+- Vercel — static hosting with `vercel.json` routing
