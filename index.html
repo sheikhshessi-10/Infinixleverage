@@ -44,7 +44,7 @@
         -webkit-font-smoothing: antialiased;
       }
 
-      /* Navigation */
+      /* ── Navigation ── */
       .nav {
         position: fixed;
         top: 0; left: 0; right: 0;
@@ -54,7 +54,6 @@
         z-index: 1000;
         padding: 24px 0;
       }
-
       .nav-container {
         max-width: 1400px;
         margin: 0 auto;
@@ -63,376 +62,348 @@
         justify-content: space-between;
         align-items: center;
       }
-
-      @media (min-width: 768px) {
-        .nav-container { padding: 0 60px; }
-      }
-
-      .logo-link {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        transition: opacity 0.3s ease;
-      }
+      @media (min-width: 768px) { .nav-container { padding: 0 60px; } }
+      .logo-link { display: flex; align-items: center; text-decoration: none; transition: opacity 0.3s ease; }
       .logo-link:hover { opacity: 0.7; }
-
       .logo-svg { width: 40px; height: 40px; }
-
       .theme-toggle {
-        width: 40px; height: 40px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        width: 40px; height: 40px; border-radius: 50%;
+        background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
         display: flex; align-items: center; justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-size: 20px;
-        color: var(--text-primary);
+        cursor: pointer; transition: all 0.3s ease; font-size: 20px; color: var(--text-primary);
       }
-      .theme-toggle:hover {
-        background: rgba(255, 255, 255, 0.15);
-        border-color: rgba(255, 255, 255, 0.3);
-      }
+      .theme-toggle:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); }
 
-      /* Hero */
-      .hero {
-        position: relative;
-        width: 100%; height: 100vh;
-        overflow: hidden;
-      }
-      .hero-canvas {
-        position: absolute; top: 0; left: 0;
-        width: 100%; height: 100%;
-        z-index: 1; display: block;
-        background: #000000;
-      }
+      /* ── Hero ── */
+      .hero { position: relative; width: 100%; height: 100vh; overflow: hidden; }
+      .hero-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; display: block; background: #000; }
       .hero::before {
-        content: '';
-        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        background:
-          linear-gradient(180deg, transparent 0%, rgba(136, 136, 136, 0.1) 50%, transparent 100%),
-          repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(136, 136, 136, 0.05) 2px, rgba(136, 136, 136, 0.05) 4px);
-        z-index: 0;
-        animation: waveMove 20s ease-in-out infinite;
+        content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(180deg,transparent 0%,rgba(136,136,136,.1) 50%,transparent 100%),
+          repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(136,136,136,.05) 2px,rgba(136,136,136,.05) 4px);
+        z-index: 0; animation: waveMove 20s ease-in-out infinite;
       }
       @keyframes waveMove {
-        0%, 100% { transform: translateY(0) scaleY(1); }
+        0%,100% { transform: translateY(0) scaleY(1); }
         50% { transform: translateY(-20px) scaleY(1.1); }
       }
       .hero-content {
-        position: absolute; inset: 0;
-        display: flex; flex-direction: column;
-        align-items: center; justify-content: center;
-        text-align: center; z-index: 10;
-        padding: 2rem 1rem; margin-top: -5rem;
+        position: absolute; inset: 0; display: flex; flex-direction: column;
+        align-items: center; justify-content: center; text-align: center;
+        z-index: 10; padding: 2rem 1rem; margin-top: -5rem;
       }
       .hero-content h1 {
-        font-size: clamp(1.8rem, 8vw, 4rem);
-        font-weight: 700; letter-spacing: -0.04em;
-        margin-bottom: 1rem; line-height: 1.1; max-width: 1000px;
+        font-size: clamp(1.8rem,8vw,4rem); font-weight: 700;
+        letter-spacing: -0.04em; margin-bottom: 1rem; line-height: 1.1; max-width: 1000px;
       }
       .hero-content p {
-        font-size: clamp(1rem, 4vw, 1.5rem);
-        font-weight: 400; color: var(--text-secondary);
-        max-width: 42rem; line-height: 1.6;
+        font-size: clamp(1rem,4vw,1.5rem); font-weight: 400;
+        color: var(--text-secondary); max-width: 42rem; line-height: 1.6;
       }
 
-      /* Empowering */
-      .empowering-section {
-        position: relative;
-        padding: 40px 16px;
-        background: var(--bg-primary); color: var(--text-primary);
-      }
-      @media (min-width: 768px) {
-        .empowering-section { padding: 80px 16px; }
-      }
-      .empowering-container {
-        position: relative; max-width: 48rem; margin: 0 auto; text-align: center;
-      }
+      /* ── Empowering ── */
+      .empowering-section { position: relative; padding: 40px 16px; background: var(--bg-primary); color: var(--text-primary); }
+      @media (min-width: 768px) { .empowering-section { padding: 80px 16px; } }
+      .empowering-container { position: relative; max-width: 48rem; margin: 0 auto; text-align: center; }
       .empowering-container h2 {
-        font-size: clamp(1.3rem, 5vw, 1.875rem);
-        font-weight: 300; letter-spacing: -0.02em;
-        line-height: 1.2; margin-bottom: 1.5rem;
+        font-size: clamp(1.3rem,5vw,1.875rem); font-weight: 300;
+        letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1.5rem;
       }
-      @media (min-width: 768px) {
-        .empowering-container h2 { white-space: nowrap; }
-      }
+      @media (min-width: 768px) { .empowering-container h2 { white-space: nowrap; } }
       .empowering-container h2 .font-medium { font-weight: 500; }
       .empowering-container p {
-        font-size: clamp(0.95rem, 3.5vw, 1.125rem);
-        color: var(--text-secondary); line-height: 1.75;
-        font-weight: 300; letter-spacing: 0.025em;
+        font-size: clamp(0.95rem,3.5vw,1.125rem); color: var(--text-secondary);
+        line-height: 1.75; font-weight: 300; letter-spacing: 0.025em;
       }
-      .empowering-divider {
-        height: 1px; width: 3rem;
-        background: rgba(255, 255, 255, 0.2);
-        margin: 1rem auto 0;
-      }
-      body.light-mode .empowering-divider { background: rgba(0, 0, 0, 0.2); }
-
+      .empowering-divider { height: 1px; width: 3rem; background: rgba(255,255,255,.2); margin: 1rem auto 0; }
+      body.light-mode .empowering-divider { background: rgba(0,0,0,.2); }
       .hidden-md { display: none; }
       @media (min-width: 768px) { .hidden-md { display: block; } }
 
-      /* Section */
-      .section { padding: 60px 20px; max-width: 1400px; margin: 0 auto; }
-      @media (min-width: 768px) { .section { padding: 100px 40px; } }
+      /* ── Section ── */
+      .section { padding: 48px 16px; max-width: 1400px; margin: 0 auto; }
+      @media (min-width: 768px) { .section { padding: 80px 40px; } }
       @media (min-width: 1024px) { .section { padding: 140px 60px; } }
+      .section-header { text-align: center; margin-bottom: 40px; }
+      @media (min-width: 768px) { .section-header { margin-bottom: 80px; } }
+      @media (min-width: 1024px) { .section-header { margin-bottom: 100px; } }
+      .section-header h2 { font-size: clamp(1.4rem,5vw,3rem); font-weight: 600; letter-spacing: -0.03em; margin-bottom: 12px; }
+      .section-header p { font-size: clamp(0.9rem,2.5vw,1.2rem); color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
 
-      .section-header { text-align: center; margin-bottom: 60px; }
-      @media (min-width: 768px) { .section-header { margin-bottom: 100px; } }
-      .section-header h2 {
-        font-size: clamp(1.5rem, 6vw, 3rem);
-        font-weight: 600; letter-spacing: -0.03em; margin-bottom: 20px;
-      }
-      .section-header p {
-        font-size: 1rem; color: var(--text-secondary);
-        max-width: 600px; margin: 0 auto;
-      }
-      @media (min-width: 768px) { .section-header p { font-size: 1.2rem; } }
-
-      /* Section Carousel */
+      /* ── Section Carousel ── */
       .section-carousel-wrapper { position: relative; overflow: hidden; width: 100%; }
-      .section-carousel { display: flex; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+      .section-carousel { display: flex; transition: transform 0.5s cubic-bezier(0.4,0,0.2,1); }
       .section-slide { min-width: 100%; flex-shrink: 0; }
 
-      /* Two Column Layout */
+      /* ── Two Column Layout ── */
+      /* Mobile-first: always side-by-side so phone and text coexist */
       .two-col {
-        display: flex; flex-direction: column;
-        gap: 40px; align-items: center;
-        max-width: 1400px; margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
       }
+      .two-col > div:first-child {
+        flex: 0 0 42%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .two-col > div:last-child {
+        flex: 1;
+        min-width: 0;
+      }
+      /* Reverse: content left, phone right */
+      .two-col.reverse > div:first-child {
+        flex: 1;
+        min-width: 0;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+      .two-col.reverse > div:last-child {
+        flex: 0 0 42%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /* Desktop: switch to grid */
       @media (min-width: 1024px) {
-        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .two-col {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 60px;
+        }
         .two-col.reverse { grid-template-columns: 1fr 400px; }
+        .two-col > div:first-child,
+        .two-col > div:last-child,
+        .two-col.reverse > div:first-child,
+        .two-col.reverse > div:last-child {
+          flex: unset; min-width: unset;
+          display: block; justify-content: unset; align-items: unset;
+        }
         .two-col > div:first-child { display: flex; justify-content: center; align-items: center; }
+        .two-col.reverse > div:last-child { display: flex; justify-content: center; align-items: center; }
         .two-col > div:last-child { padding-left: 40px; }
-        .two-col.reverse > div:last-child { padding-left: 0; }
       }
 
       .carousel-button {
-        margin-top: 32px; padding: 12px 32px;
+        margin-top: 20px; padding: 10px 24px;
         background: transparent; border: 1px solid var(--text-secondary);
-        color: var(--text-secondary); font-size: 0.9rem; font-weight: 400;
-        cursor: pointer; transition: all 0.3s ease; border-radius: 4px;
-        font-family: inherit;
+        color: var(--text-secondary); font-size: 0.85rem; font-weight: 400;
+        cursor: pointer; transition: all 0.3s ease; border-radius: 4px; font-family: inherit;
       }
+      @media (min-width: 768px) { .carousel-button { margin-top: 32px; padding: 12px 32px; font-size: 0.9rem; } }
       .carousel-button:hover { border-color: var(--text-primary); color: var(--text-primary); }
 
-      /* iPhone Mockup — aspect-ratio based, mobile-first */
+      /* ── iPhone Mockup ── */
+      /* aspect-ratio based, fills its flex container */
       .iphone-mockup {
         aspect-ratio: 1 / 2;
-        max-width: 360px;
         width: 100%;
         background: #000;
-        border-radius: 56px;
-        padding: 14px;
-        box-shadow:
-          0 0 0 2px #1a1a1a,
-          0 30px 80px rgba(0, 0, 0, 0.6),
-          inset 0 0 4px rgba(255, 255, 255, 0.05);
+        border-radius: 28px;
+        padding: 7px;
+        box-shadow: 0 0 0 2px #1a1a1a, 0 20px 60px rgba(0,0,0,.6), inset 0 0 4px rgba(255,255,255,.05);
         position: relative;
       }
+      @media (min-width: 768px) { .iphone-mockup { border-radius: 44px; padding: 10px; } }
+      @media (min-width: 1024px) { .iphone-mockup { border-radius: 56px; padding: 14px; max-width: 360px; } }
 
       .iphone-notch {
-        position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
-        width: 160px; height: 32px; background: #000;
-        border-radius: 0 0 24px 24px; z-index: 10;
+        position: absolute; top: 7px; left: 50%; transform: translateX(-50%);
+        width: 48%; height: 14px; background: #000;
+        border-radius: 0 0 10px 10px; z-index: 10;
       }
+      @media (min-width: 768px) { .iphone-notch { top: 10px; height: 24px; border-radius: 0 0 18px 18px; } }
+      @media (min-width: 1024px) { .iphone-notch { top: 14px; width: 160px; height: 32px; border-radius: 0 0 24px 24px; } }
 
       .iphone-screen {
         width: 100%; height: 100%; background: #000;
-        border-radius: 48px; overflow: hidden;
+        border-radius: 22px; overflow: hidden;
         position: relative; display: flex; flex-direction: column;
       }
+      @media (min-width: 768px) { .iphone-screen { border-radius: 36px; } }
+      @media (min-width: 1024px) { .iphone-screen { border-radius: 48px; } }
 
+      /* ── Status Bar ── */
       .status-bar {
         position: absolute; top: 0; left: 0; right: 0;
-        height: 48px; display: flex; justify-content: space-between;
-        align-items: center; padding: 0 32px 0 200px;
-        font-size: 15px; font-weight: 600; color: #fff; z-index: 5;
+        height: 26px; display: flex; justify-content: space-between; align-items: center;
+        padding: 0 8px 0 52%; font-size: 7px; font-weight: 600; color: #fff; z-index: 5;
       }
-      .time { position: absolute; left: 32px; top: 15px; }
-      .status-icons { display: flex; gap: 6px; align-items: center; font-size: 14px; }
+      @media (min-width: 768px) { .status-bar { height: 36px; padding: 0 20px 0 55%; font-size: 11px; } }
+      @media (min-width: 1024px) { .status-bar { height: 48px; padding: 0 32px 0 200px; font-size: 15px; } }
+      .time { position: absolute; left: 8px; top: 6px; font-size: 7px; }
+      @media (min-width: 768px) { .time { left: 16px; top: 10px; font-size: 11px; } }
+      @media (min-width: 1024px) { .time { left: 32px; top: 15px; font-size: 15px; } }
+      .status-icons { display: flex; gap: 2px; align-items: center; }
+      @media (min-width: 768px) { .status-icons { gap: 4px; font-size: 11px; } }
+      @media (min-width: 1024px) { .status-icons { gap: 6px; font-size: 14px; } }
 
-      /* Inbound Screen */
+      /* ── Inbound Screen ── */
       .inbound-screen {
         flex: 1; display: flex; flex-direction: column;
-        justify-content: space-between; padding: 80px 30px 40px; background: #000;
+        justify-content: space-between;
+        padding: 32px 8px 12px; background: #000;
       }
-      .call-header { text-align: center; padding-top: 60px; }
-      .caller-name {
-        font-size: 40px; font-weight: 300; color: #fff;
-        margin-bottom: 12px; letter-spacing: -0.5px;
-      }
-      .phone-number-single {
-        font-size: 28px; font-weight: 400; color: #8e8e93;
-        margin-top: 8px; letter-spacing: 0.05em;
-      }
+      @media (min-width: 768px) { .inbound-screen { padding: 56px 20px 28px; } }
+      @media (min-width: 1024px) { .inbound-screen { padding: 80px 30px 40px; } }
+      .call-header { text-align: center; padding-top: 12px; }
+      @media (min-width: 768px) { .call-header { padding-top: 36px; } }
+      @media (min-width: 1024px) { .call-header { padding-top: 60px; } }
+      .caller-name { font-size: 14px; font-weight: 300; color: #fff; margin-bottom: 4px; letter-spacing: -0.5px; }
+      @media (min-width: 768px) { .caller-name { font-size: 24px; margin-bottom: 8px; } }
+      @media (min-width: 1024px) { .caller-name { font-size: 40px; margin-bottom: 12px; } }
+      .phone-number-single { font-size: 10px; font-weight: 400; color: #8e8e93; margin-top: 2px; letter-spacing: 0; }
+      @media (min-width: 768px) { .phone-number-single { font-size: 16px; margin-top: 4px; letter-spacing: 0.02em; } }
+      @media (min-width: 1024px) { .phone-number-single { font-size: 28px; margin-top: 8px; letter-spacing: 0.05em; } }
 
-      /* Slide Controls */
-      .slide-to-call { margin-top: auto; position: relative; padding-bottom: 40px; }
+      /* ── Slide Controls ── */
+      .slide-to-call { margin-top: auto; position: relative; padding-bottom: 10px; }
+      @media (min-width: 768px) { .slide-to-call { padding-bottom: 24px; } }
+      @media (min-width: 1024px) { .slide-to-call { padding-bottom: 40px; } }
       .slide-to-answer { margin-top: auto; position: relative; }
 
       .slide-to-call-container,
       .slide-container {
-        width: 100%; height: 64px;
-        background: rgba(255, 255, 255, 0.1); border-radius: 32px;
+        width: 100%; height: 40px;
+        background: rgba(255,255,255,.1); border-radius: 20px;
         position: relative; overflow: hidden; backdrop-filter: blur(20px);
       }
+      @media (min-width: 768px) { .slide-to-call-container, .slide-container { height: 52px; border-radius: 26px; } }
+      @media (min-width: 1024px) { .slide-to-call-container, .slide-container { height: 64px; border-radius: 32px; } }
 
       .slide-to-call-track,
       .slide-track {
         position: absolute; left: 0; top: 0; height: 100%;
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
-        width: 0%; transition: width 0.3s ease; border-radius: 32px;
+        background: linear-gradient(90deg,rgba(255,255,255,.2) 0%,transparent 100%);
+        width: 0%; transition: width 0.3s ease; border-radius: inherit;
       }
 
       .slide-to-call-button,
       .slide-button {
-        position: absolute; left: 4px; top: 4px;
-        width: 56px; height: 56px; background: #fff; border-radius: 50%;
+        position: absolute; left: 3px; top: 3px;
+        width: 34px; height: 34px; background: #fff; border-radius: 50%;
         cursor: grab; display: flex; align-items: center; justify-content: center;
-        font-size: 26px; transition: left 0.3s ease;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4); user-select: none;
-        touch-action: none;
+        font-size: 16px; transition: left 0.3s ease;
+        box-shadow: 0 4px 16px rgba(0,0,0,.4); user-select: none; touch-action: none;
       }
-      .slide-to-call-button:active,
-      .slide-button:active { cursor: grabbing; }
+      @media (min-width: 768px) {
+        .slide-to-call-button, .slide-button { width: 44px; height: 44px; top: 4px; left: 4px; font-size: 22px; }
+      }
+      @media (min-width: 1024px) {
+        .slide-to-call-button, .slide-button { width: 56px; height: 56px; top: 4px; left: 4px; font-size: 26px; }
+      }
+      .slide-to-call-button:active, .slide-button:active { cursor: grabbing; }
 
-      .slide-to-call-text,
-      .slide-text {
+      .slide-to-call-text, .slide-text {
         position: absolute; width: 100%; text-align: center;
         top: 50%; transform: translateY(-50%);
-        font-size: 17px; font-weight: 500;
-        color: rgba(255, 255, 255, 0.8); pointer-events: none;
+        font-size: 9px; font-weight: 500; color: rgba(255,255,255,.8); pointer-events: none;
       }
+      @media (min-width: 768px) { .slide-to-call-text, .slide-text { font-size: 13px; } }
+      @media (min-width: 1024px) { .slide-to-call-text, .slide-text { font-size: 17px; } }
 
-      /* Phone Input */
+      /* ── Phone Input ── */
       .input-label {
-        font-size: 13px; color: var(--text-tertiary); margin-bottom: 16px;
+        font-size: 11px; color: var(--text-tertiary); margin-bottom: 12px;
         text-align: center; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500;
       }
+      @media (min-width: 768px) { .input-label { font-size: 13px; margin-bottom: 16px; } }
       .phone-input-container { position: relative; margin: 0 auto; max-width: 280px; }
       .phone-input {
-        width: 100%; background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px;
-        padding: 18px; font-size: 18px; color: #fff; text-align: center;
-        font-weight: 500; letter-spacing: 0.05em; transition: all 0.3s ease;
-        font-family: inherit;
+        width: 100%; background: rgba(255,255,255,.05);
+        border: 1px solid rgba(255,255,255,.1); border-radius: 14px;
+        padding: 14px; font-size: 16px; color: #fff; text-align: center;
+        font-weight: 500; letter-spacing: 0.05em; transition: all 0.3s ease; font-family: inherit;
       }
-      .phone-input:focus {
-        outline: none; border-color: rgba(255, 255, 255, 0.3);
-        background: rgba(255, 255, 255, 0.08);
-      }
-      .phone-input::placeholder { color: rgba(255, 255, 255, 0.3); }
+      .phone-input:focus { outline: none; border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.08); }
+      .phone-input::placeholder { color: rgba(255,255,255,.3); }
       .submit-button {
         width: 100%; background: #fff; color: #000; border: none;
-        border-radius: 14px; padding: 18px; font-size: 16px; font-weight: 600;
-        margin-top: 16px; cursor: pointer; transition: all 0.3s ease; font-family: inherit;
+        border-radius: 14px; padding: 14px; font-size: 15px; font-weight: 600;
+        margin-top: 12px; cursor: pointer; transition: all 0.3s ease; font-family: inherit;
       }
       .submit-button:hover { background: #e0e0e0; transform: translateY(-2px); }
       .submit-button:active { transform: translateY(0); }
 
-      /* Outbound Call Screen */
+      /* ── Outbound Call Screen ── */
       .outbound-screen {
         flex: 1; display: flex; flex-direction: column;
-        justify-content: space-between; padding: 80px 30px 40px;
+        justify-content: space-between; padding: 32px 8px 12px;
       }
-      .caller-info {
-        text-align: center; flex: 1; display: flex;
-        flex-direction: column; justify-content: center;
-      }
+      @media (min-width: 768px) { .outbound-screen { padding: 56px 20px 28px; } }
+      @media (min-width: 1024px) { .outbound-screen { padding: 80px 30px 40px; } }
+      .caller-info { text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: center; }
       .caller-avatar {
-        width: 120px; height: 120px; border-radius: 50%;
-        background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-        margin: 0 auto 28px; display: flex;
-        align-items: center; justify-content: center;
-        font-size: 48px; font-weight: 600;
+        width: 44px; height: 44px; border-radius: 50%;
+        background: linear-gradient(135deg,#2a2a2a 0%,#1a1a1a 100%);
+        margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;
+        font-size: 22px; font-weight: 600;
       }
+      @media (min-width: 768px) { .caller-avatar { width: 80px; height: 80px; font-size: 36px; margin-bottom: 18px; } }
+      @media (min-width: 1024px) { .caller-avatar { width: 120px; height: 120px; font-size: 48px; margin-bottom: 28px; } }
       .outbound-caller-name {
-        font-size: 36px; font-weight: 600; margin-bottom: 12px;
-        letter-spacing: -0.02em; color: #fff;
+        font-size: 14px; font-weight: 600; margin-bottom: 4px; letter-spacing: -0.02em; color: #fff;
       }
-      .caller-label {
-        font-size: 17px; color: #8e8e93; font-weight: 400;
-      }
-      .caller-label.ringing {
-        animation: pulse-ring 1.5s ease-in-out infinite;
-      }
-      @keyframes pulse-ring {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.4; }
-      }
+      @media (min-width: 768px) { .outbound-caller-name { font-size: 24px; margin-bottom: 8px; } }
+      @media (min-width: 1024px) { .outbound-caller-name { font-size: 36px; margin-bottom: 12px; } }
+      .caller-label { font-size: 9px; color: #8e8e93; font-weight: 400; }
+      @media (min-width: 768px) { .caller-label { font-size: 13px; } }
+      @media (min-width: 1024px) { .caller-label { font-size: 17px; } }
+      .caller-label.ringing { animation: pulse-ring 1.5s ease-in-out infinite; }
+      @keyframes pulse-ring { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
 
-      /* Success Overlay */
+      /* ── Content Block Mobile ── */
+      .content-block { min-width: 0; }
+      /* Stats hidden on small screens — not enough horizontal room */
+      .stat-list { display: none; }
+      @media (min-width: 640px) { .stat-list { display: flex; flex-direction: column; gap: 12px; } }
+      @media (min-width: 768px) { .stat-list { gap: 16px; } }
+
+      /* ── Success Overlay ── */
       .success-message {
         position: fixed; top: 50%; left: 50%;
-        transform: translate(-50%, -50%) scale(0);
+        transform: translate(-50%,-50%) scale(0);
         background: var(--bg-secondary); border: 1px solid var(--border);
         border-radius: 24px; padding: 32px 40px; text-align: center;
-        z-index: 1000; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
-        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        z-index: 1000; box-shadow: 0 30px 80px rgba(0,0,0,.6);
+        transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
         width: calc(100% - 40px); max-width: 480px;
       }
-      @media (min-width: 640px) {
-        .success-message { padding: 48px 72px; }
-      }
-      .success-message.show { transform: translate(-50%, -50%) scale(1); }
-      .success-message h4 { font-size: 28px; margin-bottom: 16px; font-weight: 600; }
-      .success-message p { color: var(--text-secondary); font-size: 17px; }
-
+      @media (min-width: 640px) { .success-message { padding: 48px 72px; } }
+      .success-message.show { transform: translate(-50%,-50%) scale(1); }
+      .success-message h4 { font-size: clamp(20px,5vw,28px); margin-bottom: 16px; font-weight: 600; }
+      .success-message p { color: var(--text-secondary); font-size: clamp(14px,3vw,17px); }
       .overlay {
         position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px);
+        background: rgba(0,0,0,.85); backdrop-filter: blur(10px);
         z-index: 999; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
       }
       .overlay.show { opacity: 1; pointer-events: auto; }
 
-      /* CTA */
+      /* ── CTA ── */
       .cta-section {
         position: relative; padding: 80px 20px;
-        background: var(--bg-primary);
-        border-top: 1px solid var(--footer-border);
+        background: var(--bg-primary); border-top: 1px solid var(--footer-border);
       }
       @media (min-width: 768px) { .cta-section { padding: 128px 16px; } }
       .cta-container { max-width: 80rem; margin: 0 auto; text-align: center; }
-      .cta-glow {
-        position: absolute; width: 64px; height: 64px;
-        border-radius: 50%; filter: blur(32px); pointer-events: none;
-      }
-      .cta-glow-left {
-        left: -32px; top: -32px;
-        background: linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent);
-      }
-      body.light-mode .cta-glow-left {
-        background: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent);
-      }
-      .cta-glow-right {
-        right: -32px; bottom: -32px;
-        background: linear-gradient(to left, rgba(255, 255, 255, 0.1), transparent);
-      }
-      body.light-mode .cta-glow-right {
-        background: linear-gradient(to left, rgba(0, 0, 0, 0.1), transparent);
-      }
+      .cta-glow { position: absolute; width: 64px; height: 64px; border-radius: 50%; filter: blur(32px); pointer-events: none; }
+      .cta-glow-left { left: -32px; top: -32px; background: linear-gradient(to right,rgba(255,255,255,.1),transparent); }
+      body.light-mode .cta-glow-left { background: linear-gradient(to right,rgba(0,0,0,.1),transparent); }
+      .cta-glow-right { right: -32px; bottom: -32px; background: linear-gradient(to left,rgba(255,255,255,.1),transparent); }
+      body.light-mode .cta-glow-right { background: linear-gradient(to left,rgba(0,0,0,.1),transparent); }
       .cta-heading { position: relative; display: inline-block; }
-      .cta-section h2 {
-        font-size: clamp(1.5rem, 6vw, 3rem);
-        font-weight: 300; letter-spacing: -0.02em;
-        margin-bottom: 24px; color: var(--text-primary);
-      }
+      .cta-section h2 { font-size: clamp(1.5rem,6vw,3rem); font-weight: 300; letter-spacing: -0.02em; margin-bottom: 24px; color: var(--text-primary); }
       .cta-section h2 .font-medium { font-weight: 500; }
-      .cta-section p {
-        font-size: clamp(1rem, 4vw, 1.25rem); color: var(--text-secondary);
-        max-width: 42rem; margin: 0 auto 48px;
-      }
-      .cta-buttons {
-        display: flex; flex-direction: column;
-        align-items: center; justify-content: center; gap: 16px;
-      }
+      .cta-section p { font-size: clamp(1rem,4vw,1.25rem); color: var(--text-secondary); max-width: 42rem; margin: 0 auto 48px; }
+      .cta-buttons { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
       @media (min-width: 640px) { .cta-buttons { flex-direction: row; } }
       .cta-button-primary {
-        padding: 12px 32px;
-        color: var(--bg-primary); background: var(--text-primary);
+        padding: 12px 32px; color: var(--bg-primary); background: var(--text-primary);
         border: 2px solid var(--text-primary); border-radius: 9999px;
         font-weight: 500; text-decoration: none; transition: all 0.3s ease; display: inline-block;
       }
@@ -444,33 +415,21 @@
       }
       .cta-button-secondary:hover { border-color: var(--text-primary); }
 
-      /* Footer */
-      .footer {
-        background: var(--bg-primary); color: var(--text-primary);
-        padding: 48px 0; font-weight: 300;
-        border-top: 1px solid var(--footer-border);
-      }
+      /* ── Footer ── */
+      .footer { background: var(--bg-primary); color: var(--text-primary); padding: 48px 0; font-weight: 300; border-top: 1px solid var(--footer-border); }
       .footer-container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
       .footer-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 48px; }
-      @media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } }
+      @media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(4,1fr); } }
       .footer-column h3 { font-size: 1.125rem; font-weight: 500; margin-bottom: 16px; }
-      .footer-column p { color: var(--text-secondary); font-size: 0.875rem; }
+      .footer-column p, .footer-column .footer-text { color: var(--text-secondary); font-size: 0.875rem; }
       .footer-column ul { list-style: none; }
       .footer-column ul li { margin-bottom: 8px; }
-      .footer-column a {
-        color: var(--text-secondary); text-decoration: none;
-        font-size: 0.875rem; transition: color 0.3s ease;
-      }
+      .footer-column a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; transition: color 0.3s ease; }
       .footer-column a:hover { color: var(--text-primary); }
-      .footer-column .footer-text { color: var(--text-secondary); font-size: 0.875rem; }
       .footer-social { display: flex; gap: 16px; }
       .footer-social a { color: var(--text-secondary); transition: color 0.3s ease; }
       .footer-social a:hover { color: var(--text-primary); }
-      .footer-bottom {
-        text-align: center; padding-top: 32px;
-        border-top: 1px solid var(--footer-border);
-        color: var(--text-secondary); font-size: 0.875rem;
-      }
+      .footer-bottom { text-align: center; padding-top: 32px; border-top: 1px solid var(--footer-border); color: var(--text-secondary); font-size: 0.875rem; }
     </style>
   </head>
   <body>
@@ -517,6 +476,7 @@
 
       <div class="section-carousel-wrapper">
         <div class="section-carousel" id="sectionCarousel">
+
           <!-- Slide 1: Food Order -->
           <div class="section-slide">
             <div class="two-col">
@@ -526,14 +486,12 @@
                   <div class="iphone-screen">
                     <div class="status-bar">
                       <div class="time">9:41</div>
-                      <div class="status-icons">
-                        <span>📶</span><span>📡</span><span>🔋</span>
-                      </div>
+                      <div class="status-icons"><span>📶</span><span>📡</span><span>🔋</span></div>
                     </div>
                     <div class="inbound-screen">
                       <div class="call-header">
                         <div class="caller-name">InfinixLeverage</div>
-                        <div class="phone-number-single">+1 (601) 307-2165</div>
+                        <div class="phone-number-single">+1 (228) 283-8127</div>
                       </div>
                       <div class="slide-to-call">
                         <div class="slide-to-call-container" id="slideToCallContainer">
@@ -547,17 +505,17 @@
                 </div>
               </div>
               <div class="content-block">
-                <p style="font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-primary); margin-bottom: 12px; font-weight: 400; letter-spacing: -0.01em;">Hungry? Let's order something to eat?</p>
-                <p style="font-size: clamp(0.95rem, 1.5vw, 1.1rem); color: var(--text-secondary); margin-bottom: 32px; font-weight: 400;">Slide to call!</p>
-                <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 500; margin-bottom: 24px; line-height: 1.3; color: var(--text-primary); letter-spacing: -0.02em;">24/7 Customer Presence</h2>
-                <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 32px; font-weight: 400;">
+                <p style="font-size: clamp(0.9rem,2vw,1.3rem); color: var(--text-primary); margin-bottom: 8px; font-weight: 400; letter-spacing: -0.01em;">Hungry? Let's order something to eat?</p>
+                <p style="font-size: clamp(0.8rem,1.5vw,1.1rem); color: var(--text-secondary); margin-bottom: 20px; font-weight: 400;">Slide to call!</p>
+                <h2 style="font-size: clamp(1.1rem,3vw,2rem); font-weight: 500; margin-bottom: 16px; line-height: 1.3; color: var(--text-primary); letter-spacing: -0.02em;">24/7 Customer Presence</h2>
+                <p style="font-size: clamp(0.8rem,1.5vw,0.95rem); color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; font-weight: 400;">
                   While your team rests, InfinixLeverage AI remains available. Every call answered. Every question resolved. Every opportunity captured.
                 </p>
-                <div style="display: flex; flex-direction: column; gap: 16px;">
-                  <div style="display: flex; align-items: center; gap: 12px; color: var(--text-secondary); font-size: 0.9rem;"><div style="width: 4px; height: 4px; background: var(--text-secondary); border-radius: 50%;"></div><span>Always available</span></div>
-                  <div style="display: flex; align-items: center; gap: 12px; color: var(--text-secondary); font-size: 0.9rem;"><div style="width: 4px; height: 4px; background: var(--text-secondary); border-radius: 50%;"></div><span>No waiting</span></div>
-                  <div style="display: flex; align-items: center; gap: 12px; color: var(--text-secondary); font-size: 0.9rem;"><div style="width: 4px; height: 4px; background: var(--text-secondary); border-radius: 50%;"></div><span>Infinite scalability</span></div>
-                  <div style="display: flex; align-items: center; gap: 12px; color: var(--text-secondary); font-size: 0.9rem;"><div style="width: 4px; height: 4px; background: var(--text-secondary); border-radius: 50%;"></div><span>Consistent answers</span></div>
+                <div class="stat-list">
+                  <div style="display:flex;align-items:center;gap:12px;color:var(--text-secondary);font-size:0.9rem;"><div style="width:4px;height:4px;background:var(--text-secondary);border-radius:50%;flex-shrink:0;"></div><span>Always available</span></div>
+                  <div style="display:flex;align-items:center;gap:12px;color:var(--text-secondary);font-size:0.9rem;"><div style="width:4px;height:4px;background:var(--text-secondary);border-radius:50%;flex-shrink:0;"></div><span>No waiting</span></div>
+                  <div style="display:flex;align-items:center;gap:12px;color:var(--text-secondary);font-size:0.9rem;"><div style="width:4px;height:4px;background:var(--text-secondary);border-radius:50%;flex-shrink:0;"></div><span>Infinite scalability</span></div>
+                  <div style="display:flex;align-items:center;gap:12px;color:var(--text-secondary);font-size:0.9rem;"><div style="width:4px;height:4px;background:var(--text-secondary);border-radius:50%;flex-shrink:0;"></div><span>Consistent answers</span></div>
                 </div>
                 <button class="carousel-button" onclick="nextSectionSlide()">Next →</button>
               </div>
@@ -573,14 +531,12 @@
                   <div class="iphone-screen">
                     <div class="status-bar">
                       <div class="time">9:41</div>
-                      <div class="status-icons">
-                        <span>📶</span><span>📡</span><span>🔋</span>
-                      </div>
+                      <div class="status-icons"><span>📶</span><span>📡</span><span>🔋</span></div>
                     </div>
                     <div class="inbound-screen">
                       <div class="call-header">
                         <div class="caller-name">InfinixLeverage</div>
-                        <div class="phone-number-single">+1 (601) 307-2165</div>
+                        <div class="phone-number-single">+1 (228) 283-8127</div>
                       </div>
                       <div class="slide-to-call">
                         <div class="slide-to-call-container" id="slideToCallContainer2">
@@ -594,22 +550,23 @@
                 </div>
               </div>
               <div class="content-block">
-                <p style="font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-primary); margin-bottom: 12px; font-weight: 400; letter-spacing: -0.01em;">Need a plumber/electrician?</p>
-                <p style="font-size: clamp(0.95rem, 1.5vw, 1.1rem); color: var(--text-secondary); margin-bottom: 32px; font-weight: 400;">Slide to call!</p>
-                <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 500; margin-bottom: 24px; line-height: 1.3; color: var(--text-primary); letter-spacing: -0.02em;">24/7 Customer Presence</h2>
-                <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 32px; font-weight: 400;">
+                <p style="font-size: clamp(0.9rem,2vw,1.3rem); color: var(--text-primary); margin-bottom: 8px; font-weight: 400; letter-spacing: -0.01em;">Need a plumber/electrician?</p>
+                <p style="font-size: clamp(0.8rem,1.5vw,1.1rem); color: var(--text-secondary); margin-bottom: 20px; font-weight: 400;">Slide to call!</p>
+                <h2 style="font-size: clamp(1.1rem,3vw,2rem); font-weight: 500; margin-bottom: 16px; line-height: 1.3; color: var(--text-primary); letter-spacing: -0.02em;">24/7 Customer Presence</h2>
+                <p style="font-size: clamp(0.8rem,1.5vw,0.95rem); color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; font-weight: 400;">
                   While your team rests, InfinixLeverage AI remains available. Every call answered. Every question resolved. Every opportunity captured.
                 </p>
-                <div style="display: flex; flex-direction: column; gap: 16px;">
-                  <div style="display: flex; align-items: center; gap: 12px; color: var(--text-secondary); font-size: 0.9rem;"><div style="width: 4px; height: 4px; background: var(--text-secondary); border-radius: 50%;"></div><span>Always available</span></div>
-                  <div style="display: flex; align-items: center; gap: 12px; color: var(--text-secondary); font-size: 0.9rem;"><div style="width: 4px; height: 4px; background: var(--text-secondary); border-radius: 50%;"></div><span>No waiting</span></div>
-                  <div style="display: flex; align-items: center; gap: 12px; color: var(--text-secondary); font-size: 0.9rem;"><div style="width: 4px; height: 4px; background: var(--text-secondary); border-radius: 50%;"></div><span>Infinite scalability</span></div>
-                  <div style="display: flex; align-items: center; gap: 12px; color: var(--text-secondary); font-size: 0.9rem;"><div style="width: 4px; height: 4px; background: var(--text-secondary); border-radius: 50%;"></div><span>Consistent answers</span></div>
+                <div class="stat-list">
+                  <div style="display:flex;align-items:center;gap:12px;color:var(--text-secondary);font-size:0.9rem;"><div style="width:4px;height:4px;background:var(--text-secondary);border-radius:50%;flex-shrink:0;"></div><span>Always available</span></div>
+                  <div style="display:flex;align-items:center;gap:12px;color:var(--text-secondary);font-size:0.9rem;"><div style="width:4px;height:4px;background:var(--text-secondary);border-radius:50%;flex-shrink:0;"></div><span>No waiting</span></div>
+                  <div style="display:flex;align-items:center;gap:12px;color:var(--text-secondary);font-size:0.9rem;"><div style="width:4px;height:4px;background:var(--text-secondary);border-radius:50%;flex-shrink:0;"></div><span>Infinite scalability</span></div>
+                  <div style="display:flex;align-items:center;gap:12px;color:var(--text-secondary);font-size:0.9rem;"><div style="width:4px;height:4px;background:var(--text-secondary);border-radius:50%;flex-shrink:0;"></div><span>Consistent answers</span></div>
                 </div>
                 <button class="carousel-button" onclick="prevSectionSlide()">← Previous</button>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -622,12 +579,13 @@
       </div>
 
       <div class="two-col reverse">
+        <!-- Content Left -->
         <div class="content-block">
-          <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 500; margin-bottom: 24px; line-height: 1.3; color: var(--text-primary); letter-spacing: -0.02em;">Let Our AI Call You</h2>
-          <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 32px; font-weight: 400;">
+          <h2 style="font-size: clamp(1.1rem,3vw,2rem); font-weight: 500; margin-bottom: 16px; line-height: 1.3; color: var(--text-primary); letter-spacing: -0.02em;">Let Our AI Call You</h2>
+          <p style="font-size: clamp(0.8rem,1.5vw,0.95rem); color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; font-weight: 400;">
             Enter your phone number and our AI agent will call you. Experience seamless customer support on your terms.
           </p>
-          <div style="max-width: 100%; margin-top: 0;">
+          <div>
             <div class="input-label">Enter your phone number</div>
             <div class="phone-input-container" style="max-width: 100%;">
               <input type="tel" class="phone-input" placeholder="+1 (555) 000-0000" id="outboundPhone"/>
@@ -636,6 +594,7 @@
           </div>
         </div>
 
+        <!-- iPhone Right -->
         <div>
           <div class="iphone-mockup">
             <div class="iphone-notch"></div>
@@ -708,14 +667,12 @@
             <h3>Contact</h3>
             <ul>
               <li class="footer-text">hello@infinixleverage.com</li>
-              <li class="footer-text">+1 (601) 307-2165</li>
+              <li class="footer-text">+1 (228) 283-8127</li>
               <li class="footer-text">Available 24/7</li>
             </ul>
           </div>
         </div>
-        <div class="footer-bottom">
-          &copy; 2024 InfinixLeverage. All rights reserved.
-        </div>
+        <div class="footer-bottom">&copy; 2024 InfinixLeverage. All rights reserved.</div>
       </div>
     </footer>
 
@@ -740,54 +697,48 @@
 
           const segments = 200;
           const lines = [];
-          const lineMaterial = new THREE.LineBasicMaterial({ color: 0xaaaaaa, transparent: true, opacity: 0.5 });
-
+          const mat = new THREE.LineBasicMaterial({ color: 0xaaaaaa, transparent: true, opacity: 0.5 });
           for (let layer = 0; layer < 120; layer++) {
-            const geometry = new THREE.BufferGeometry();
-            const positions = [];
+            const geo = new THREE.BufferGeometry();
+            const pos = [];
             const y = (layer / 120 - 0.5) * 18;
             for (let i = 0; i <= segments; i++) {
               const x = (i / segments - 0.5) * 30;
               const z = Math.sin(x * 0.2 + layer * 0.1) * 2 +
                         Math.cos(x * 0.4 + layer * 0.08) * 1.2 +
                         Math.sin(x * 0.6 + layer * 0.15) * 0.8;
-              positions.push(x, y, z);
+              pos.push(x, y, z);
             }
-            geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-            const line = new THREE.Line(geometry, lineMaterial);
+            geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+            const line = new THREE.Line(geo, mat);
             scene.add(line);
             lines.push(line);
           }
           particles = lines;
 
           let time = 0;
-          function animate() {
+          (function animate() {
             requestAnimationFrame(animate);
             time += 0.01;
             particles.forEach((line, i) => {
-              const pos = line.geometry.attributes.position;
-              for (let j = 0; j < pos.count; j++) {
-                const x = pos.getX(j);
-                const z = Math.sin(x * 0.2 + i * 0.1 + time) * 2 +
+              const p = line.geometry.attributes.position;
+              for (let j = 0; j < p.count; j++) {
+                const x = p.getX(j);
+                p.setZ(j, Math.sin(x * 0.2 + i * 0.1 + time) * 2 +
                           Math.cos(x * 0.4 + i * 0.08 + time * 0.8) * 1.2 +
-                          Math.sin(x * 0.6 + i * 0.15 + time * 0.6) * 0.8;
-                pos.setZ(j, z);
+                          Math.sin(x * 0.6 + i * 0.15 + time * 0.6) * 0.8);
               }
-              pos.needsUpdate = true;
+              p.needsUpdate = true;
             });
             renderer.render(scene, camera);
-          }
-          animate();
+          })();
 
           window.addEventListener('resize', () => {
             const w = window.innerWidth, h = window.innerHeight;
-            camera.aspect = w / h;
-            camera.updateProjectionMatrix();
+            camera.aspect = w / h; camera.updateProjectionMatrix();
             renderer.setSize(w, h);
           });
-        } catch (e) {
-          console.error('Three.js error:', e);
-        }
+        } catch (e) { console.error('Three.js error:', e); }
       }
 
       // Theme Toggle
@@ -796,36 +747,22 @@
       if (themeToggle) {
         themeToggle.addEventListener('click', () => {
           isDarkMode = !isDarkMode;
-          if (isDarkMode) {
-            document.body.classList.remove('light-mode');
-            if (scene) {
-              scene.background = new THREE.Color(0x000000);
-              particles.forEach(l => { l.material.color.setHex(0x888888); l.material.opacity = 0.3; });
-            }
-            themeIcon.textContent = '🌙';
-          } else {
-            document.body.classList.add('light-mode');
-            if (scene) {
-              scene.background = new THREE.Color(0xffffff);
-              particles.forEach(l => { l.material.color.setHex(0x666666); l.material.opacity = 0.2; });
-            }
-            themeIcon.textContent = '☀️';
+          document.body.classList.toggle('light-mode', !isDarkMode);
+          if (scene) {
+            scene.background = new THREE.Color(isDarkMode ? 0x000000 : 0xffffff);
+            particles.forEach(l => {
+              l.material.color.setHex(isDarkMode ? 0x888888 : 0x666666);
+              l.material.opacity = isDarkMode ? 0.3 : 0.2;
+            });
           }
+          themeIcon.textContent = isDarkMode ? '🌙' : '☀️';
         });
       }
 
-      function checkThreeJS() {
-        if (typeof THREE !== 'undefined') {
-          setTimeout(initThreeJS, 100);
-        } else {
-          setTimeout(checkThreeJS, 500);
-        }
-      }
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', checkThreeJS);
-      } else {
-        checkThreeJS();
-      }
+      (function checkThreeJS() {
+        if (typeof THREE !== 'undefined') { setTimeout(initThreeJS, 100); }
+        else { setTimeout(checkThreeJS, 500); }
+      })();
 
       // attachSlide: Pointer Events-based slide handler
       function attachSlide(buttonId, containerId, trackId, onComplete) {
@@ -848,23 +785,19 @@
 
         function onMove(e) {
           const rect = container.getBoundingClientRect();
-          let x = e.clientX - rect.left - 28;
-          const maxX = rect.width - 64;
+          const btnSize = btn.offsetWidth;
+          let x = e.clientX - rect.left - btnSize / 2;
+          const maxX = rect.width - btnSize - (btn.offsetLeft * 2 - 4) / 2;
           x = Math.max(4, Math.min(x, maxX));
           btn.style.left = x + 'px';
-          track.style.width = (x / maxX * 100) + '%';
-          if (x >= maxX * 0.85) {
-            cleanup(e.pointerId);
-            onComplete();
-          }
+          track.style.width = ((x - 4) / (maxX - 4) * 100) + '%';
+          if (x >= maxX * 0.85) { cleanup(e.pointerId); onComplete(); }
         }
 
-        function onEnd(e) {
-          cleanup(e.pointerId);
-        }
+        function onEnd(e) { cleanup(e.pointerId); }
 
         function cleanup(pointerId) {
-          btn.releasePointerCapture(pointerId);
+          try { btn.releasePointerCapture(pointerId); } catch (_) {}
           btn.removeEventListener('pointermove', onMove);
           btn.removeEventListener('pointerup', onEnd);
           btn.removeEventListener('pointercancel', onEnd);
@@ -877,18 +810,16 @@
 
       // Section Carousel
       let currentSectionSlide = 0;
-      const totalSectionSlides = 2;
-
       function nextSectionSlide() {
-        if (currentSectionSlide < totalSectionSlides - 1) {
-          currentSectionSlide++;
-          document.getElementById('sectionCarousel').style.transform = `translateX(-${currentSectionSlide * 100}%)`;
+        if (currentSectionSlide < 1) {
+          currentSectionSlide = 1;
+          document.getElementById('sectionCarousel').style.transform = 'translateX(-100%)';
         }
       }
       function prevSectionSlide() {
         if (currentSectionSlide > 0) {
-          currentSectionSlide--;
-          document.getElementById('sectionCarousel').style.transform = `translateX(-${currentSectionSlide * 100}%)`;
+          currentSectionSlide = 0;
+          document.getElementById('sectionCarousel').style.transform = 'translateX(0)';
         }
       }
 
@@ -897,10 +828,7 @@
 
       function initiateOutboundCall() {
         const phoneInput = document.getElementById('outboundPhone');
-        if (!phoneInput.value.trim()) {
-          alert('Please enter your phone number!');
-          return;
-        }
+        if (!phoneInput.value.trim()) { alert('Please enter your phone number!'); return; }
         phoneNumberEntered = true;
         const label = document.getElementById('callerLabel');
         label.textContent = 'ringing...';
@@ -925,18 +853,15 @@
       // Init slide handlers
       function initSliders() {
         attachSlide('slideToCallButton', 'slideToCallContainer', 'slideToCallTrack', () => {
-          window.location.href = 'tel:+16013072165';
+          window.location.href = 'tel:+12282838127';
           showSuccess();
         });
         attachSlide('slideToCallButton2', 'slideToCallContainer2', 'slideToCallTrack2', () => {
-          window.location.href = 'tel:+16013072165';
+          window.location.href = 'tel:+12282838127';
           showSuccess();
         });
         attachSlide('slideButton', 'slideContainer', 'slideTrack', () => {
-          if (!phoneNumberEntered) {
-            alert('Please enter your phone number and request a call first!');
-            return;
-          }
+          if (!phoneNumberEntered) { alert('Please enter your phone number and request a call first!'); return; }
           showSuccess();
         });
       }
@@ -947,7 +872,7 @@
         initSliders();
       }
 
-      document.getElementById('outboundPhone').addEventListener('keypress', (e) => {
+      document.getElementById('outboundPhone').addEventListener('keypress', e => {
         if (e.key === 'Enter') initiateOutboundCall();
       });
     </script>
